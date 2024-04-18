@@ -1,0 +1,62 @@
+.block {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 20%;
+}
+
+.block img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.info {
+  width: 75%;
+  text-align: center;
+  color: rgb(61, 61, 61);
+  font-size: 16px;
+}
+
+.info div {
+  padding: 5px 0;
+}
+
+.number {
+  font-weight: bold;
+  color: rgb(0, 83, 0);
+  font-size: 1.1em;
+}
+
+.notice {
+  display: block;
+  font-size: 0.75em;
+  color: gray;
+}
+
+.line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.line div {
+  width: 37%;
+}
+
+.line div:last-of-type {
+  width: 20%;
+}
+
+.error {
+  font-size: 0.75em;
+  color: brown;
+}

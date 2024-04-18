@@ -1,0 +1,46 @@
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 300px;
+  max-width: 85vw;
+  padding: 7px;
+}
+
+.invalid {
+  background-color: rgba(255, 0, 0, 0.13);
+}
+
+.datalist {
+  position: absolute;
+  left: 0;
+  top: 33px;
+  right: 0;
+  z-index: 2;
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.data {
+  font-size: 16px;
+  border: 1px solid rgba(128, 128, 128, 0.363);
+  border-top: none;
+  padding: 5px;
+}
+
+.data:first-child {
+  border-top: 1px solid rgba(128, 128, 128, 0.363);
+}
+
+.data:hover {
+  background-color: rgba(128, 128, 128, 0.178);
+  cursor: pointer;
+}
+
+.noresult,
+.noresult:hover {
+  background-color: rgba(128, 128, 128, 0.082);
+  cursor: auto;
+}
