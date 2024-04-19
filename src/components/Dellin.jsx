@@ -20,7 +20,8 @@ export default function Dellin() {
 
   const getDellinData = useCallback(async () => {
     setLoading(true);
-    try {
+    if (fromHouse && toHouse) {
+      try {
       const response = await fetch(
         `${import.meta.env.VITE_SERVER_URL}/dellin`,
         {
@@ -74,13 +75,23 @@ export default function Dellin() {
       });
       setLoading(false);
     }
-  }, [from, to, weight, dimensions]);
+    } else {
+      setDellinData({
+        status: 0,
+        error: null,
+        price: null,
+        time: null
+      })
+      setLoading(false)
+    }
+    
+  }, [from, to, fromHouse, toHouse, weight, dimensions]);
 
   useEffect(() => {
-    if (fromHouse && toHouse && weight > 0 && dimensions.full) {
+    if (from && to && weight > 0 && dimensions.full) {
       getDellinData();
     }
-  }, [fromHouse, toHouse, weight, dimensions.full, getDellinData]);
+  }, [from, to, weight, dimensions.full, getDellinData]);
 
   return (
     <div className={s.block}>
