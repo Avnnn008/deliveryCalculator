@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const dadataApi = createApi({
   reducerPath: "dadataApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://suggestions.dadata.ru/suggestions/api/4_1/rs/",
+    baseUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs/",
     method: "POST",
     prepareHeaders: (headers) => {
       headers.set("Content-Type", "application/json");
