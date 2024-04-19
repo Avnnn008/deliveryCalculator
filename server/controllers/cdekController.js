@@ -1,4 +1,4 @@
-const DeliveryApiTokens = require("../models/deliverytokens");
+const DeliveryApiTokens = require("../models/deliveryTokens");
 require("dotenv").config();
 
 const cdekController = async (req, res) => {
