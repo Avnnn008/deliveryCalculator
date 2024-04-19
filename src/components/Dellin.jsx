@@ -19,7 +19,7 @@ export default function Dellin() {
   const getDellinData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/${import.meta.env.VITE_SERVER_URL}/dellin`, {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/dellin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

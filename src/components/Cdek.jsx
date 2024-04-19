@@ -28,7 +28,7 @@ export default function Cdek() {
   const getCdekData = useCallback(async () => {
     try {
       setLoading(true);
-      const cdekResponse = await fetch(`/${import.meta.env.VITE_SERVER_URL}/cdek`, {
+      const cdekResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/cdek`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
