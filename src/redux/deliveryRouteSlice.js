@@ -37,6 +37,7 @@ const initialDirectionsData = {
   name: null,
   kladr: null,
   post: null,
+  house: null
   // cdek: null,
   // boxberry: null,
   // dpd: null,

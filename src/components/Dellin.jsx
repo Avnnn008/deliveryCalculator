@@ -6,6 +6,8 @@ import s from "./delivery.module.css";
 export default function Dellin() {
   const from = useSelector((state) => state.deliveryRoute.from.name);
   const to = useSelector((state) => state.deliveryRoute.to.name);
+  const fromHouse = useSelector((state) => state.deliveryRoute.from.house);
+  const toHouse = useSelector((state) => state.deliveryRoute.to.house);
   const weight = useSelector((state) => state.deliveryRoute.weight);
   const dimensions = useSelector((state) => state.deliveryRoute.dimensions);
   const [loading, setLoading] = useState(false);
@@ -19,18 +21,21 @@ export default function Dellin() {
   const getDellinData = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/dellin`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from,
-          to,
-          weight: (weight / 1000).toFixed(3),
-          width: (dimensions.width / 100).toFixed(2),
-          length: (dimensions.length / 100).toFixed(2),
-          height: (dimensions.height / 100).toFixed(2),
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/dellin`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            from,
+            to,
+            weight: (weight / 1000).toFixed(3),
+            width: (dimensions.width / 100).toFixed(2),
+            length: (dimensions.length / 100).toFixed(2),
+            height: (dimensions.height / 100).toFixed(2),
+          }),
+        }
+      );
       const responseData = await response.json();
       if (responseData.error) {
         setDellinData({
@@ -72,15 +77,17 @@ export default function Dellin() {
   }, [from, to, weight, dimensions]);
 
   useEffect(() => {
-    if (from && to && weight > 0 && dimensions.full) {
+    if (fromHouse && toHouse && weight > 0 && dimensions.full) {
       getDellinData();
     }
-  }, [from, to, weight, dimensions.full, getDellinData]);
+  }, [fromHouse, toHouse, weight, dimensions.full, getDellinData]);
 
   return (
     <div className={s.block}>
       <div className={s.logo}>
-        <img src="dellin.png" alt="" />
+        <a href="https://www.dellin.ru" target="_blank" title="Деловые Линии">
+          <img src="dellin.png" alt="" />
+        </a>
       </div>
       <div className={s.info}>
         {loading ? (

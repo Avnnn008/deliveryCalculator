@@ -74,7 +74,9 @@ export default function Post() {
   return (
     <div className={s.block}>
       <div className={s.logo}>
-        <img src="post.png" alt="" />
+        <a href="https://www.pochta.ru/shipment?type=PARCEL" target="_blank" title="Почта России">
+          <img src="post.png" alt="" />
+        </a>
       </div>
       <div className={s.info}>
         {loading ? (

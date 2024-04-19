@@ -81,7 +81,9 @@ export default function Cdek() {
   return (
     <div className={s.block}>
       <div className={s.logo}>
-        <img src="cdek.png" alt="" />
+        <a href="https://www.cdek.ru/ru/" target="_blank" title="CDEK">
+         <img src="cdek.png" alt="" /> 
+        </a>
       </div>
       <div className={s.info}>
         {loading ? (

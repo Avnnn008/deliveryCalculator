@@ -11,7 +11,10 @@
 .logo {
   width: 20%;
 }
-
+.logo a {
+  max-width: 100%;
+  cursor: pointer;
+}
 .block img {
   height: 40px;
   max-width: 100%;

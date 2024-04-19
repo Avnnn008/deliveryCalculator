@@ -40,6 +40,7 @@ export const dadataApi = createApi({
                 name: obj.value,
                 post: obj.data["postal_code"],
                 kladr: obj.data["kladr_id"],
+                house: !!obj.data.house
               };
             });
           return { data };
