@@ -28,8 +28,14 @@ export default function Cdek() {
   const getCdekData = useCallback(async () => {
     try {
       setLoading(true);
+    if (window.controller) {
+      window.controller.abort()
+    }
+      window.controller = new AbortController()
+      window.signal = window.controller.signal
       const cdekResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/cdek`, {
         method: "POST",
+        signal: window.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           from,
@@ -62,13 +68,15 @@ export default function Cdek() {
         setLoading(false);
       }
     } catch (e) {
-      setCdekData({
+      if (!/aborted/.test(e.message)) {
+        setCdekData({
         tariff: [],
         error: "Ошибка при получении данных",
         status: 1,
       });
       setLoading(false);
-      console.log(e);
+      }
+      
     }
   }, [from, to, weight, addDimensions]);
 
