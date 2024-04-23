@@ -77,8 +77,8 @@ export default function Dellin() {
     }
     } else {
       setDellinData({
-        status: 0,
-        error: null,
+        status: 1,
+        error: 'Адреса должны быть указаны с точностью до дома',
         price: null,
         time: null
       })
